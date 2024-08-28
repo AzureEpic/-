@@ -9,6 +9,9 @@ local ImageLabel = Instance.new("ImageLabel")
 local GrabAnchor = Instance.new("ScreenGui")
 local AnchorButton = Instance.new("ImageButton")
 local ImageLabel_2 = Instance.new("ImageLabel")
+local ESP = Instance.new("ScreenGui")
+local ESP_2 = Instance.new("ImageButton")
+local TextLabel = Instance.new("TextLabel")
 
 --Properties:
 
@@ -20,7 +23,7 @@ ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageButton.BackgroundTransparency = 1.000
 ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton.BorderSizePixel = 0
-ImageButton.Position = UDim2.new(0.657916307, 0, 0.856948256, 0)
+ImageButton.Position = UDim2.new(0.628383934, 0, 0.856948256, 0)
 ImageButton.Size = UDim2.new(0.0820344537, 0, 0.136239782, 0)
 ImageButton.Image = "rbxassetid://97166444"
 
@@ -38,11 +41,11 @@ GrabAnchor.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 AnchorButton.Name = "AnchorButton"
 AnchorButton.Parent = GrabAnchor
-AnchorButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AnchorButton.BackgroundColor3 = Color3.fromRGB(5, 1, 3)
 AnchorButton.BackgroundTransparency = 1.000
 AnchorButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 AnchorButton.BorderSizePixel = 0
-AnchorButton.Position = UDim2.new(0.546349466, 0, 0.841961861, 0)
+AnchorButton.Position = UDim2.new(0.534044325, 0, 0.856948256, 0)
 AnchorButton.Size = UDim2.new(0.0820344537, 0, 0.136239782, 0)
 AnchorButton.Image = "rbxassetid://97166444"
 
@@ -55,9 +58,36 @@ ImageLabel_2.Position = UDim2.new(0.144329891, 0, 0.109999999, 0)
 ImageLabel_2.Size = UDim2.new(0.711340189, 0, 0.779999971, 0)
 ImageLabel_2.Image = "http://www.roblox.com/asset/?id=18107573879"
 
+ESP.Name = "ESP"
+ESP.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+ESP_2.Name = "ESP"
+ESP_2.Parent = ESP
+ESP_2.BackgroundColor3 = Color3.fromRGB(5, 1, 3)
+ESP_2.BackgroundTransparency = 1.000
+ESP_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ESP_2.BorderSizePixel = 0
+ESP_2.Position = UDim2.new(0.44380641, 0, 0.856948256, 0)
+ESP_2.Size = UDim2.new(0.0803937688, 0, 0.136239782, 0)
+ESP_2.Image = "rbxassetid://97166444"
+
+TextLabel.Parent = ESP_2
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0, 0, 0.25, 0)
+TextLabel.Size = UDim2.new(0.99999994, 0, 0.5, 0)
+TextLabel.Font = Enum.Font.Ubuntu
+TextLabel.Text = "ESP"
+TextLabel.TextColor3 = Color3.fromRGB(254, 254, 254)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
 -- Scripts:
 
-local function LRZU_fake_script() -- ImageButton.LocalScript 
+local function DZUTBO_fake_script() -- ImageButton.LocalScript 
 	local script = Instance.new('LocalScript', ImageButton)
 
 	script.Parent.MouseButton1Click:Connect(function()
@@ -75,25 +105,27 @@ local function LRZU_fake_script() -- ImageButton.LocalScript
 	
 	end)
 end
-coroutine.wrap(LRZU_fake_script)()
-local function BSIIUFV_fake_script() -- AnchorButton.LocalScript 
+coroutine.wrap(DZUTBO_fake_script)()
+local function FNPR_fake_script() -- AnchorButton.LocalScript 
 	local script = Instance.new('LocalScript', AnchorButton)
 
 	
 	script.Parent.MouseButton1Click:Connect(function()
+	
+	script.Parent.Boom:Play()
 	
 	for _, child in workspace:GetChildren() do
 		if child:IsA("Model") and child.Name== "GrabParts" then
 			local weld = child:FindFirstChild("GrabPart").WeldConstraint
 			local Affected = weld.Part1
 	
-				local bpc = Affected:FindFirstChildOfClass("BodyPosition")
+				local bpc = Affected:FindFirstChild("BodyPosition")
 				if bpc then bpc:Destroy()
 	
-					local bgc = Affected:FindFirstChildOfClass("BodyGyroo")
+					local bgc = Affected:FindFirstChild("BodyGyro")
 					if bgc then bgc:Destroy()
 	
-						local hlc = Affected:FindFirstChildOfClass("Highlight")
+						local hlc = Affected:FindFirstChild("Highlight")
 						if hlc then hlc:Destroy()
 	
 	
@@ -111,15 +143,15 @@ local function BSIIUFV_fake_script() -- AnchorButton.LocalScript
 			local bp = Instance.new("BodyPosition")
 			bp.Parent = Affected
 			bp.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-			bp.P = 10000
-			bp.D = 1000
+			bp.P = 100000000
+			bp.D = 100000000
 			bp.Position = Affected.Position
 			bp.Parent = Affected
 	
 			local bg = Instance.new("BodyGyro")
 			bg.Parent = Affected
 			bg.MaxTorque = Vector3.new(math.huge,math.huge,math.huge)
-			bg.P = 10
+			bg.P = 100000
 			
 			
 			
@@ -128,4 +160,27 @@ local function BSIIUFV_fake_script() -- AnchorButton.LocalScript
 	end
 	end)
 end
-coroutine.wrap(BSIIUFV_fake_script)()
+coroutine.wrap(FNPR_fake_script)()
+local function MSEDF_fake_script() -- ESP_2.LocalScript 
+	local script = Instance.new('LocalScript', ESP_2)
+
+	
+	script.Parent.MouseButton1Click:Connect(function()
+	
+	for _, child in game.Players:GetPlayers() do
+	
+	
+			
+			local hl = Instance.new("Highlight")
+			
+			hl.Parent = child.Character
+			hl.FillTransparency = 1
+			hl.OutlineColor = Color3.fromRGB(0,100,255)
+			
+	
+			
+	
+	end
+	end)
+end
+coroutine.wrap(MSEDF_fake_script)()
