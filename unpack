@@ -1,0 +1,131 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local FastEscape = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local ImageLabel = Instance.new("ImageLabel")
+local GrabAnchor = Instance.new("ScreenGui")
+local AnchorButton = Instance.new("ImageButton")
+local ImageLabel_2 = Instance.new("ImageLabel")
+
+--Properties:
+
+FastEscape.Name = "FastEscape"
+FastEscape.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+ImageButton.Parent = FastEscape
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageButton.BackgroundTransparency = 1.000
+ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.657916307, 0, 0.856948256, 0)
+ImageButton.Size = UDim2.new(0.0820344537, 0, 0.136239782, 0)
+ImageButton.Image = "rbxassetid://97166444"
+
+ImageLabel.Parent = ImageButton
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.144329891, 0, 0.109999999, 0)
+ImageLabel.Size = UDim2.new(0.711340189, 0, 0.779999971, 0)
+ImageLabel.Image = "rbxassetid://108613321233764"
+
+GrabAnchor.Name = "GrabAnchor"
+GrabAnchor.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+AnchorButton.Name = "AnchorButton"
+AnchorButton.Parent = GrabAnchor
+AnchorButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AnchorButton.BackgroundTransparency = 1.000
+AnchorButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AnchorButton.BorderSizePixel = 0
+AnchorButton.Position = UDim2.new(0.546349466, 0, 0.841961861, 0)
+AnchorButton.Size = UDim2.new(0.0820344537, 0, 0.136239782, 0)
+AnchorButton.Image = "rbxassetid://97166444"
+
+ImageLabel_2.Parent = AnchorButton
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_2.BackgroundTransparency = 1.000
+ImageLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_2.BorderSizePixel = 0
+ImageLabel_2.Position = UDim2.new(0.144329891, 0, 0.109999999, 0)
+ImageLabel_2.Size = UDim2.new(0.711340189, 0, 0.779999971, 0)
+ImageLabel_2.Image = "http://www.roblox.com/asset/?id=18107573879"
+
+-- Scripts:
+
+local function LRZU_fake_script() -- ImageButton.LocalScript 
+	local script = Instance.new('LocalScript', ImageButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+	
+	game:GetService("ReplicatedStorage").CharacterEvents.Struggle:FireServer(game:GetService("Players").LocalPlayer)
+	
+	
+	
+	local args = {
+		[1] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+		[2] = 0
+	}
+	
+	game:GetService("ReplicatedStorage").CharacterEvents.RagdollRemote:FireServer(unpack(args))
+	
+	end)
+end
+coroutine.wrap(LRZU_fake_script)()
+local function BSIIUFV_fake_script() -- AnchorButton.LocalScript 
+	local script = Instance.new('LocalScript', AnchorButton)
+
+	
+	script.Parent.MouseButton1Click:Connect(function()
+	
+	for _, child in workspace:GetChildren() do
+		if child:IsA("Model") and child.Name== "GrabParts" then
+			local weld = child:FindFirstChild("GrabPart").WeldConstraint
+			local Affected = weld.Part1
+	
+				local bpc = Affected:FindFirstChildOfClass("BodyPosition")
+				if bpc then bpc:Destroy()
+	
+					local bgc = Affected:FindFirstChildOfClass("BodyGyroo")
+					if bgc then bgc:Destroy()
+	
+						local hlc = Affected:FindFirstChildOfClass("Highlight")
+						if hlc then hlc:Destroy()
+	
+	
+	end end end
+	
+	
+			
+			local hl = Instance.new("Highlight")
+			
+			hl.Parent = Affected
+			hl.FillColor = Color3.fromRGB(0,100,255)
+			hl.OutlineColor = Color3.fromRGB(0,100,255)
+			
+			--anchor Affected with BodyPosition
+			local bp = Instance.new("BodyPosition")
+			bp.Parent = Affected
+			bp.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+			bp.P = 10000
+			bp.D = 1000
+			bp.Position = Affected.Position
+			bp.Parent = Affected
+	
+			local bg = Instance.new("BodyGyro")
+			bg.Parent = Affected
+			bg.MaxTorque = Vector3.new(math.huge,math.huge,math.huge)
+			bg.P = 10
+			
+			
+			
+			
+		end
+	end
+	end)
+end
+coroutine.wrap(BSIIUFV_fake_script)()
