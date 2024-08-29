@@ -119,17 +119,10 @@ local function FNPR_fake_script() -- AnchorButton.LocalScript
 			local weld = child:FindFirstChild("GrabPart").WeldConstraint
 			local Affected = weld.Part1
 	
-				local bpc = Affected:FindFirstChild("BodyPosition")
-				if bpc then bpc:Destroy()
-	
-					local bgc = Affected:FindFirstChild("BodyGyro")
-					if bgc then bgc:Destroy()
-	
-						local hlc = Affected:FindFirstChild("Highlight")
-						if hlc then hlc:Destroy()
+				
 	
 	
-	end end end
+
 	
 	
 			
@@ -143,15 +136,15 @@ local function FNPR_fake_script() -- AnchorButton.LocalScript
 			local bp = Instance.new("BodyPosition")
 			bp.Parent = Affected
 			bp.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-			bp.P = 100000000
-			bp.D = 100000000
+			bp.P = 100
+			bp.D = 100
 			bp.Position = Affected.Position
 			bp.Parent = Affected
 	
 			local bg = Instance.new("BodyGyro")
 			bg.Parent = Affected
 			bg.MaxTorque = Vector3.new(math.huge,math.huge,math.huge)
-			bg.P = 100000
+			bg.P = 1000
 			
 			
 			
